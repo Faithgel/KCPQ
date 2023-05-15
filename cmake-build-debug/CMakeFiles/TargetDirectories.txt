@@ -1,0 +1,3 @@
+C:/Users/User/CLionProjects/KCPQ/cmake-build-debug/CMakeFiles/KCPQ.dir
+C:/Users/User/CLionProjects/KCPQ/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/CLionProjects/KCPQ/cmake-build-debug/CMakeFiles/rebuild_cache.dir
