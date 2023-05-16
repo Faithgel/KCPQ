@@ -3,6 +3,7 @@
 #include <queue>
 #include <cmath>
 #include <chrono>
+#include <random>
 
 // Structure to represent a point
 struct Point {
@@ -82,7 +83,10 @@ int main() {
     //100k
     std::vector<Point> points100k;
     //Generate a random size number between 100k and 2M
-    int size = rand() % 1900000 + 100000;
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(100000, 2000000);
+    int size = dis(gen);
     std::cout << "Size of dataset: " << size << std::endl;
     for (int i = 0; i < size; i++) {
         points100k.push_back({rand() % size, rand() % size});
@@ -100,63 +104,5 @@ int main() {
     std::cout << "Elapsed time: " << elapsed.count() << " s\n";
     //print the closest pairs
     printKCPQ(closestPairs);
-
-    //empty the closestPairs vector
-    closestPairs.clear();
-    /*
-    //250k
-    std::vector<Point> points250k;
-    for (int i = 0; i < 250000; i++) {
-        points250k.push_back({rand() % 250000, rand() % 250000});
-    }
-    closestPairs = kClosestPairQuery(points250k, K);
-
-    //print the closest pairs
-    printKCPQ(closestPairs);
-
-    //empty the closestPairs vector
-    closestPairs.clear();
-
-
-    //500k
-    std::vector<Point> points500k;
-    for (int i = 0; i < 500000; i++) {
-        points500k.push_back({rand() % 500000, rand() % 500000});
-    }
-
-    closestPairs = kClosestPairQuery(points500k, K);
-
-    //print the closest pairs
-    printKCPQ(closestPairs);
-
-    //empty the closestPairs vector
-    closestPairs.clear();
-
-    //1M
-    std::vector<Point> points1M;
-    for (int i = 0; i < 1000000; i++) {
-        points1M.push_back({rand() % 1000000, rand() % 1000000});
-    }
-
-    closestPairs = kClosestPairQuery(points1M, K);
-
-    //print the closest pairs
-    printKCPQ(closestPairs);
-
-    //empty the closestPairs vector
-    closestPairs.clear();
-
-    //2M
-    std::vector<Point> points2M;
-    for (int i = 0; i < 2000000; i++) {
-        points2M.push_back({rand() % 2000000, rand() % 2000000});
-    }
-
-    closestPairs = kClosestPairQuery(points2M, K);
-
-    //print the closest pairs
-    printKCPQ(closestPairs);
-    */
-
     return 0;
 }
